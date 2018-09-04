@@ -1,0 +1,50 @@
+# ROM and RAM map
+
+## RAM map
+
+$420: direction (facing)
+$6d: air x speed
+
+$80 simon energy
+$4f8 - simon iframes
+$F1 - player input
+$F7 - player input
+$86 hour
+$6d xspeed
+$6c xspeed-frac
+
+$36c: vspeed
+$37e: vspeed-frac
+
+$3d8 simon's action state
+- 0: standing
+- 1: walkingO
+- 2: jumping
+- 3: crouching
+- 4: attacking
+- 5: falling
+- 6: knockback
+- 7: stair find
+- 9: stair stand
+- A: stair walk
+
+$390 simon's action substate. Stores state when also attacking.
+
+$300: image index
+$23f: x coordinate
+
+y-coordinate:
+$0238
+$023c
+$0244
+$0324 (master)
+
+## ROM map
+
+Simon dispatch: 81c4
+
+## Edits
+custom falling: ROM x00C6F9 (02, was 05)
+custom jump: K3:9CF4
+edits to jump-attack, jump logic, knockback (redirects to custom jump): x00C9DB...
+simon jump table for stair jumping: ROM 0x00c1ec-0x00c1ef
